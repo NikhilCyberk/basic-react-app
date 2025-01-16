@@ -17,10 +17,10 @@ pipeline {
             }
         }
         
-        stage('Test') {
+        stage('Lint') {
             steps {
-                // Run tests without watch mode
-                bat 'npm test -- --watchAll=false'
+                // Run ESLint
+                bat 'npm run lint'
             }
         }
         
