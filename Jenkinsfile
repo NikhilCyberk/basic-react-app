@@ -17,7 +17,7 @@ pipeline {
             }
         }
         
-stage('Lint') {
+        stage('Lint') {
             steps {
                 script {
                     try {
@@ -40,10 +40,11 @@ stage('Lint') {
         }
         
         stage('Deploy') {
-    steps {
-        echo "deploy succues"
+            steps {
+                echo "deploy success"
+            }
+        }
     }
-}
     
     post {
         success {
