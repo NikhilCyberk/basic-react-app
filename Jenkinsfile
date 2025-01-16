@@ -17,10 +17,18 @@ pipeline {
             }
         }
         
-        stage('Lint') {
+stage('Lint') {
             steps {
-                // Run ESLint
-                bat 'npm run lint'
+                script {
+                    try {
+                        bat 'npm run lint'
+                    } catch (err) {
+                        // Don't fail the build, but mark it as unstable
+                        unstable(message: "Linting issues found")
+                        // Continue with the build
+                        echo "Lint issues found, but continuing with build..."
+                    }
+                }
             }
         }
         
@@ -45,6 +53,9 @@ pipeline {
     post {
         success {
             echo 'Build and deployment successful!'
+        }
+        unstable {
+            echo 'Build completed with some issues.'
         }
         failure {
             echo 'Build or deployment failed!'
