@@ -41,10 +41,7 @@ stage('Lint') {
         
         stage('Deploy') {
     steps {
-        bat '''
-            if not exist "C:\\Users\\nikhi\\Desktop\\Nexturn\\Module_Assignment\\Nexturn_Modules\\M6_Cloud\\01_Jenkins\\ex4\\Deploy\\react-app" mkdir "C:\\Users\\nikhi\\Desktop\\Nexturn\\Module_Assignment\\Nexturn_Modules\\M6_Cloud\\01_Jenkins\\ex4\\Deploy\\react-app"
-            xcopy /s /e /y "dist\\*" "C:\\Users\\nikhi\\Desktop\\Nexturn\\Module_Assignment\\Nexturn_Modules\\M6_Cloud\\01_Jenkins\\ex4\\Deploy\\react-app"
-        '''
+        echo "deploy succues"
     }
 }
     
